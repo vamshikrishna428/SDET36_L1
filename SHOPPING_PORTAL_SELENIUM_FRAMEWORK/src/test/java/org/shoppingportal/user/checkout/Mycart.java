@@ -19,9 +19,6 @@ public class Mycart {
 		// initialize the data from property file
 		fileutility.InitializePropertyFile(IConstants.SHOPPINGPORTALPROPERTYPATH);
 
-		
-		
-		
 		// fetch the data from property file
 		String browser = fileutility.getDatafromPropertyFile("browser");
 		String url = fileutility.getDatafromPropertyFile("url");
@@ -49,7 +46,7 @@ public class Mycart {
 		 
 		 LogOutPage logout=new LogOutPage(driver);
 		 logout.logOutLink();
-		
+		System.out.println("logout");
 	}
 
 }
