@@ -18,6 +18,9 @@ public class Mycart {
 		
 		// initialize the data from property file
 		fileutility.InitializePropertyFile(IConstants.SHOPPINGPORTALPROPERTYPATH);
+
+		
+		
 		
 		// fetch the data from property file
 		String browser = fileutility.getDatafromPropertyFile("browser");
