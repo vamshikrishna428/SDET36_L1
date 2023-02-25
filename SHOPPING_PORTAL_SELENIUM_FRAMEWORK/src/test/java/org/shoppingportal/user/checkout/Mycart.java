@@ -46,7 +46,7 @@ public class Mycart {
 		 
 		 LogOutPage logout=new LogOutPage(driver);
 		 logout.logOutLink();
-		System.out.println("hi logout");
+		
 	}
 
 }
