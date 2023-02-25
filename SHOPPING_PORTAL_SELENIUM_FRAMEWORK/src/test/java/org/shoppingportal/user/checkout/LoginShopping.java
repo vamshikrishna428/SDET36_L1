@@ -44,7 +44,7 @@ public class LoginShopping {
 		 
 		 userloginpage.PerfomLogin(username, password);
 		 userloginpage.submitLogin();
-		System.out.println(" hello git hub");
+		
 		
 		
 		
