@@ -8,6 +8,6 @@ public class TestNgPractise {
 	public void testngPractise() {
 	Reporter.log("hi");
 	System.out.println("hello");
-	System.out.println("welcome");
+	
 	}	
 }
