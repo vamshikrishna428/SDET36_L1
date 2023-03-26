@@ -9,5 +9,6 @@ public class TestNgPractise {
 	Reporter.log("hi");
 	System.out.println("hello");
 	System.out.println("welcome");
+	System.out.println("welcome");
 	}	
 }
