@@ -87,13 +87,6 @@ public class SearchProduct {
 		}
 
 		
-		
-		
-		
-		
-		
-		
-		
 	//	webdriverutility.compareDataContains(productdata, orderinfo);
 
 		logoutpage.logOutLink();

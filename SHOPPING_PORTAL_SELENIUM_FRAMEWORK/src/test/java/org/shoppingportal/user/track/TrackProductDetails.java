@@ -59,7 +59,7 @@ public class TrackProductDetails {
 				 trackorder.submitTrackButton();
 				 
 				 String excel1 = excelutility.getExcelData("sheet1", 1, 3);
-				 int duration = javautility.ConvertStringtoIneger(excel1);
+				 int duration = javautility.ConvertStringtoInteger(excel1);
 				 trackproductdetails.customMethod(webdriverutility,timeouts ,duration);
 				 
 				 String excelpopupdata = excelutility.getExcelData("sheet1", 2, 3);

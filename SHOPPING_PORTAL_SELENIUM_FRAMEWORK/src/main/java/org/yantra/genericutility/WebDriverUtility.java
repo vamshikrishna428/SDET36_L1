@@ -19,7 +19,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  */
 public class WebDriverUtility {
 	private WebDriver driver;
-	
+
 	/**
 	 * 
 	 * @param args
@@ -58,7 +58,7 @@ public class WebDriverUtility {
 	 */
 	public   void WaitImplicitly(long longtimeout) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(longtimeout));
-		
+
 
 	}
 	/**
@@ -66,7 +66,7 @@ public class WebDriverUtility {
 	 * @param longtimeout
 	 * @return 
 	 */
-/*	public  WebDriverWait WaitExplicitliy( long longtimeout) {
+	/*	public  WebDriverWait WaitExplicitliy( long longtimeout) {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(longtimeout));
 		return wait;
 	}	*/
@@ -174,7 +174,7 @@ public class WebDriverUtility {
 		Select select=new Select(element);
 		select.deselectAll();
 	}
-	
+
 	public void geturl(String url) {
 		driver.get(url);
 	}
@@ -188,71 +188,78 @@ public class WebDriverUtility {
 			System.out.println("data is invalid");
 		}	
 	}
-		public void waitTillElementClickable(long totalDuration,int pollingTime,WebElement element)
+	public void waitTillElementClickable(long totalDuration,int pollingTime,WebElement element)
+	{
+		int currentTime=0;
+		while(currentTime<=totalDuration)
 		{
-			int currentTime=0;
-			while(currentTime<=totalDuration)
+			try 
 			{
-				try 
+				element.click();
+				break;
+			}catch(Exception e)
+			{
+				System.out.println("product details not found");
+				try
 				{
-					element.click();
-					break;
-				}catch(Exception e)
+					Thread.sleep(pollingTime);
+				} catch (InterruptedException e1)
 				{
-					System.out.println("product details not found");
-					try
-					{
-						Thread.sleep(pollingTime);
-					} catch (InterruptedException e1)
-					{
-						
-						e1.printStackTrace();
-					}
-					currentTime++;
+
+					e1.printStackTrace();
 				}
+				currentTime++;
 			}
 		}
-		public void switchTowindow(String partialVisibleText,String Strategy)
+	}
+	public void switchTowindow(String partialVisibleText,String Strategy)
+	{
+		Set<String> winID = driver.getWindowHandles();
+		for (String Id : winID) 
 		{
-			Set<String> winID = driver.getWindowHandles();
-			for (String Id : winID) 
-			{
 
-				if(Strategy.equalsIgnoreCase("url"))
+			if(Strategy.equalsIgnoreCase("url"))
+			{
+				driver.switchTo().window(Id);
+				String actualUrl = driver.getCurrentUrl();
+				if(actualUrl.contains(partialVisibleText))
 				{
-					driver.switchTo().window(Id);
-					String actualUrl = driver.getCurrentUrl();
-					if(actualUrl.contains(partialVisibleText))
-					{
-						break;		
-					}
+					break;		
 				}
-				else if(Strategy.equalsIgnoreCase("title"))
+			}
+			else if(Strategy.equalsIgnoreCase("title"))
+			{
+				driver.switchTo().window(Id);
+				String actualTitle=driver.getTitle();
+				if(actualTitle.contains(partialVisibleText))
 				{
-					driver.switchTo().window(Id);
-					String actualTitle=driver.getTitle();
-					if(actualTitle.contains(partialVisibleText))
-					{
-						break;		
-					}
+					break;		
 				}
 			}
 		}
+	}
 
-		
-		public void compareDataContains(String actual,String expected) {
-			if(actual.contains(expected))
-			{
-				System.out.println("data is valid");
-			}
-			else
-			{
-				System.out.println("data is invalid");
-			}	
+
+	public void compareDataContains(String actual,String expected) {
+
+		if(actual.contains(expected))
+		{
+			System.out.println("data is valid");
 		}
-		
-		
-		
+		else
+		{
+			System.out.println("data is invalid");
+		}	
+	}
+	public void switchWindow() {
+
+		Set<String> windowid = driver.getWindowHandles();
+		for(String id:windowid)
+		{
+			driver.switchTo().window(id);
+		}
+
+	}
 }
 
 

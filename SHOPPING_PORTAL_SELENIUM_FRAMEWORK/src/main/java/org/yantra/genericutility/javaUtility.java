@@ -44,7 +44,7 @@ public long ConvertStringToLong(String num) {
  * @return 
  */
 
-public int ConvertStringtoIneger(String num) {
+public int ConvertStringtoInteger(String num) {
 	return Integer.parseInt(num);
 }
 

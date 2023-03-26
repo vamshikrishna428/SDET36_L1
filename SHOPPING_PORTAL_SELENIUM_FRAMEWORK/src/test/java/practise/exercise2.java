@@ -1,5 +1,7 @@
 package practise;
 
+import java.util.ArrayList;
+
 public class exercise2 {
 
 	public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class exercise2 {
 		
 		String anke = name.replace("###", "lokesh");
 		System.out.println(anke);
+		ArrayList<String> crunchifyList = new ArrayList<String>();
 	}
-
+	
 }

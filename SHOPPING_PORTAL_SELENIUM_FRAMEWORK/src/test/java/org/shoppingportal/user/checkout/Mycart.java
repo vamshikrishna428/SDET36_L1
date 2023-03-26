@@ -46,6 +46,7 @@ public class Mycart {
 		 
 		 LogOutPage logout=new LogOutPage(driver);
 		 logout.logOutLink();
+		 
 		
 	}
 
