@@ -7,7 +7,6 @@ public class TestNgPractise {
 	@Test
 	public void testngPractise() {
 	Reporter.log("hi");
-	System.out.println("hello");
 	
 	}	
 }
