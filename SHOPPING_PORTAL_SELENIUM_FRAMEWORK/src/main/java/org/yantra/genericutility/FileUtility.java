@@ -13,9 +13,11 @@ import java.util.Properties;
 public class FileUtility {
 	/**
 	 * this method is used to initialize the property file
+	 * 
 	 * @param propertypath
 	 */
 	Properties properties;
+
 	public void InitializePropertyFile(String propertypath) {
 		FileInputStream fis = null;
 		try {
@@ -23,8 +25,8 @@ public class FileUtility {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		 properties=new Properties();
+
+		properties = new Properties();
 		try {
 			properties.load(fis);
 		} catch (IOException e) {
@@ -32,17 +34,16 @@ public class FileUtility {
 		}
 
 	}
-	/**this method is used to get data from excel file
+
+	/**
+	 * this method is used to get data from excel file
 	 * 
 	 * @param args
-	 * @return 
+	 * @return
 	 */
 	public String getDatafromPropertyFile(String key) {
-	String data = properties.getProperty(key);
-	return data;
+		String data = properties.getProperty(key);
+		return data;
 	}
-	
-	
 
 }
-
