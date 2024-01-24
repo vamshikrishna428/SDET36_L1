@@ -12,13 +12,13 @@ public class LoginShopping {
 
 	public static void main(String[] args) {
 		// create an object for all utility classes
-		FileUtility fileutility=new FileUtility();
-		javaUtility javautility=new javaUtility();
-		WebDriverUtility utility=new WebDriverUtility();
-		
+		FileUtility fileutility = new FileUtility();
+		javaUtility javautility = new javaUtility();
+		WebDriverUtility utility = new WebDriverUtility();
+
 		// initialize the data from property file
 		fileutility.InitializePropertyFile(IConstants.SHOPPINGPORTALPROPERTYPATH);
-		
+
 		// fetch the data from property file
 		String browser = fileutility.getDatafromPropertyFile("browser");
 		String url = fileutility.getDatafromPropertyFile("url");
@@ -26,28 +26,26 @@ public class LoginShopping {
 		String password = fileutility.getDatafromPropertyFile("password");
 		String time = fileutility.getDatafromPropertyFile("timeouts");
 		long timeouts = javautility.ConvertStringToLong(time);
-		
+
 		// launching the browser in the run time based on browser key
-		 WebDriver driver = utility.setUpDriver(browser);
-		 utility.geturl(url);
-		 utility.MaximizeBrowser();
-		 utility.WaitImplicitly(timeouts);
-		 
-		// creating objects for pom classes 
-		 UserLoginPage userloginpage=new UserLoginPage(driver);
-		 CommonPage commonpage=new CommonPage(driver);
-		 
-		 
-		 utility.WaitImplicitly(timeouts);
-		 
-		 commonpage.clickLoginLink();
-		 
-		 userloginpage.PerfomLogin(username, password);
-		 userloginpage.submitLogin();
-		
-		
-		
-		
+		WebDriver driver = utility.setUpDriver(browser);
+		utility.geturl(url);
+		utility.MaximizeBrowser();
+		utility.WaitImplicitly(timeouts);
+
+		// creating objects for pom classes
+		UserLoginPage userloginpage = new UserLoginPage(driver);
+		CommonPage commonpage = new CommonPage(driver);
+
+		utility.WaitImplicitly(timeouts);
+
+		commonpage.clickLoginLink();
+
+		userloginpage.PerfomLogin(username, password);
+		userloginpage.submitLogin();
+
+//		driver.close();
+
 	}
 
 }
